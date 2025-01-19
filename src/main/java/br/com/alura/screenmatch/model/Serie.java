@@ -1,12 +1,8 @@
 package br.com.alura.screenmatch.model;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
+import br.com.alura.screenmatch.service.traducao.ConsultaMyMemory;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 import java.util.OptionalDouble;
-import java.util.stream.Collectors;
 
 public class Serie {
     private String titulo;
@@ -20,11 +16,11 @@ public class Serie {
     public Serie(DadosSerie dadosSerie){
         this.titulo = dadosSerie.titulo();
         this.totalTemporadas = dadosSerie.totalTemporadas();
-        this.avaliacao = OptionalDouble.of(Double.valueOf(dadosSerie.avaliacao())).orElse(0.0);
+        this.avaliacao = OptionalDouble.of(Double.valueOf(dadosSerie.avaliacao())).orElse(0);
         this.genero = Categoria.fromString(dadosSerie.genero().split(",")[0].trim());
         this.atores = dadosSerie.atores();
         this.poster = dadosSerie.poster();
-        this.sinopse = dadosSerie.sinopse();
+        this.sinopse = ConsultaMyMemory.obterTraducao(dadosSerie.sinopse()).trim();
     }
 
     public String getTitulo() {
