@@ -1,4 +1,4 @@
-package br.com.alura.desafios.springDataJpa;
+package br.com.alura.aulas;
 
 import java.util.Optional;
 

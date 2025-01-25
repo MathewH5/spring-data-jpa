@@ -1,7 +1,6 @@
-package br.com.alura.desafios.springDataJpa;
+package br.com.alura.aulas;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class stream {
     public static void main(String[] args) {
