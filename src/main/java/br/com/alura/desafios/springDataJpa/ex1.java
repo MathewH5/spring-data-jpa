@@ -5,6 +5,7 @@ import br.com.alura.exception.NumeroInvalidoException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 //1 - Imagine que você tem uma lista de strings. Algumas das strings são números, mas outras não.
 // Queremos converter a lista de strings para uma lista de números. Se a conversão falhar, você deve ignorar o valor.
@@ -15,23 +16,27 @@ import java.util.List;
 //System.out.println(Integer.parseInt("123")); // Converte uma String para int: 123
 
 
-
 public class ex1 {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        List<String> lista = Arrays.asList("10", "abdf", "23","KLK");
+        List<Integer> listaNumeros = new ArrayList<>();
 
-        List<String> listaDeString = Arrays.asList("10", "BFC", "B10", "2");
-        List<Integer> listaSoComOsNumeros = new ArrayList<>();
-        listaSoComOsNumeros.add(0);
-
-        for (String item : listaDeString){
-            try{
-                listaSoComOsNumeros.add(Integer.parseInt(item));
-            }catch (NumberFormatException e){
-                System.out.println("Ignorando item inválido: " + item);
+        for (String s : lista) {
+            converterEmNumero(s).ifPresent(listaNumeros::add);
+            if (converterEmNumero(s).isEmpty()){
+                System.out.println(s+"nao podera ser transforamado em Numero");
             }
         }
+        System.out.println(listaNumeros);
 
-        System.out.println(listaSoComOsNumeros);
+    }
+
+    public static Optional<Integer> converterEmNumero(String s) {
+        try {
+            return Optional.of(Integer.parseInt(s));
+        } catch (NumberFormatException e) {
+            return Optional.empty();
+        }
     }
 }
