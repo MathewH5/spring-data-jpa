@@ -1,6 +1,7 @@
 package br.com.alura.aulas;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 public class stream {
     public static void main(String[] args) {

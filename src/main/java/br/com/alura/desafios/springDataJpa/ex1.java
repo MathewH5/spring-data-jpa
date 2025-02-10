@@ -1,7 +1,5 @@
 package br.com.alura.desafios.springDataJpa;
 
-import br.com.alura.exception.NumeroInvalidoException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
