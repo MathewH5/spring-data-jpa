@@ -31,9 +31,9 @@ public class stream {
 //                .filter(e -> e % 2 == 0)
 //                .forEach(e -> System.out.print(e + " "));
 
-//        lista.stream()
-//                .map(e -> e*2)// lista original nao modificada
-//                .forEach(e -> System.out.print(e + " "));
+        lista.stream()
+                .map(e -> e*2)// lista original nao modificada
+                .forEach(e -> System.out.print(e + " "));
 
 //        operacoes finais
 //
